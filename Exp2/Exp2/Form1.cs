@@ -20,6 +20,7 @@ namespace Exp2
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            cb_login.SelectedIndex = 0;
 
         }
 
@@ -41,11 +42,17 @@ namespace Exp2
                     else if (l_password.Text == "admin")
                     {
                         MessageBox.Show("Login succes"+l_username.Text);
-                        GB.Visible = true;
-                        x.Text = null;
-                        y.Text = null;
+                        lu.Visible = false;
+                        lp.Visible = false;
+                        login log = new login(l_username.Text);
+                        log.Show();
+                        l_password.Visible = false;
+                        l_username.Visible = false;
+                        button1.Visible = false;
+
                         l_username.Clear();
                         l_password.Clear();
+
                     }
                     else
                     {
@@ -77,9 +84,14 @@ namespace Exp2
                         MessageBox.Show("Login succes" + l_username.Text);
                         l_username.Clear();
                         l_password.Clear();
-                        x.Text = null;
-                        y.Text = null;
-                        GB.Visible = true;
+                        lu.Visible = false;
+                        lp.Visible = false;
+                        login log = new login(l_username.Text);
+                        log.Show();
+                        l_password.Visible = false;
+                        l_username.Visible = false;
+                        button1.Visible = false;
+                   
 
                     }
                     else
@@ -111,10 +123,18 @@ namespace Exp2
                     {
                         MessageBox.Show("Login succes" + l_username.Text);
                         l_username.Clear();
-                        x.Text = null;
-                        y.Text = null;
-                        GB.Visible = true;
+
+                        lu.Visible = false;
+                        lp.Visible = false;
+                        l_password.Visible = false;
+                        l_username.Visible = false;
+                        login log = new login(l_username.Text);
+                        Close();
+                        log.Show();
+                        button1.Visible = false;
+                        
                         l_password.Clear();
+                        
                     }
                     else
                     {
@@ -140,60 +160,7 @@ namespace Exp2
             Close();
         }
 
-        private void add_Click(object sender, EventArgs e)
-        {
-            int a = Convert.ToInt16(x.Text);
-            int b = Convert.ToInt16(y.Text);
-            int s = a + b;
 
-            sum.Text = a + " + " + b + "=" + s;
-        }
-
-        private void sub_Click(object sender, EventArgs e)
-        {
-            int a = Convert.ToInt16(x.Text);
-            int b = Convert.ToInt16(y.Text);
-            int s = a - b;
-
-            sum.Text = a + " - " + b + "=" + s;
-        }
-
-        private void mul_Click(object sender, EventArgs e)
-        {
-            int a = Convert.ToInt16(x.Text);
-            int b = Convert.ToInt16(y.Text);
-            int s = a * b;
-
-            sum.Text = a + " * " + b + "=" + s;
-
-        }
-
-        private void x_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void y_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-            if(log==1)
-            {
-                Visible = true;
-            }
-        }
-
-        private void exit_Click(object sender, EventArgs e)
-        {
-            GB.Visible = false;
-        }
-
-        private void add_Click_1(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
